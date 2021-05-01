@@ -1,0 +1,17 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx3024\clbrdrt\brdrs\cellx3888\clbrdrt\brdrs\cellx4752\clbrdrt\brdrs\cellx5616\clbrdrt\brdrs\cellx6624
+\ql \cell\qc (1)\cell\qc (2)\cell\qc (3)\cell\qc (4)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx3024\cellx3888\cellx4752\cellx5616\cellx6624
+\ql \cell\qc tos .\cell\qc \cell\qc tos .\cell\qc \cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx3024\cellx3888\cellx4752\cellx5616\cellx6624
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx3024\clbrdrb\brdrs\cellx3888\clbrdrb\brdrs\cellx4752\clbrdrb\brdrs\cellx5616\clbrdrb\brdrs\cellx6624
+\ql VARIABLES\cell\qc N\cell\qc mean\cell\qc N\cell\qc mean\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx3024\cellx3888\cellx4752\cellx5616\cellx6624
+\ql \cell\qc \cell\qc \cell\qc \cell\qc \cell\row
+\ql average_fare\cell\qc 600\cell\qc 2.002\cell\qc 502\cell\qc 2.353\cell\row
+\ql trips_per_person\cell\qc 600\cell\qc 8.097\cell\qc 502\cell\qc 3.381\cell\row
+\ql log_trips_per_person\cell\qc 600\cell\qc 0.658\cell\qc 502\cell\qc -0.397\cell\row
+\ql log_average_fare\cell\qc 600\cell\qc 0.252\cell\qc 502\cell\qc 0.506\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx3024\clbrdrb\brdrs\cellx3888\clbrdrb\brdrs\cellx4752\clbrdrb\brdrs\cellx5616\clbrdrb\brdrs\cellx6624
+\ql \cell\qc \cell\qc \cell\qc \cell\qc \cell\row
+}

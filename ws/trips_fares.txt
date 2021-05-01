@@ -1,0 +1,14 @@
+	(1)	(2)
+VARIABLES	trips_per_person	log_trips_per_person
+		
+average_fare	-0.694***	
+	(0.0992)	
+log_average_fare		-0.616***
+		(0.0713)
+Constant	7.448***	0.404***
+	(0.463)	(0.0700)
+		
+Observations	1,102	1,102
+R-squared	0.029	0.078
+Robust standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

@@ -1,0 +1,12 @@
+	(1)	(2)
+VARIABLES	PT	DO
+		
+log_average_fare	-0.451***	-0.623***
+	(0.104)	(0.0937)
+Constant	-0.169	0.814***
+	(0.110)	(0.0871)
+		
+Observations	502	600
+R-squared	0.050	0.076
+Robust standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

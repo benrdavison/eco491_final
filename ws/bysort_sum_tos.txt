@@ -1,0 +1,9 @@
+	(1)	(2)	(3)	(4)
+	tos .		tos .	
+VARIABLES	N	mean	N	mean
+				
+average_fare	600	2.002	502	2.353
+trips_per_person	600	8.097	502	3.381
+log_trips_per_person	600	0.658	502	-0.397
+log_average_fare	600	0.252	502	0.506
+				

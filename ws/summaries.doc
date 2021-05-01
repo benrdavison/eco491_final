@@ -1,0 +1,27 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx3024\clbrdrt\brdrs\cellx3888\clbrdrt\brdrs\cellx5328\clbrdrt\brdrs\cellx6768\clbrdrt\brdrs\cellx7920\clbrdrt\brdrs\cellx9360
+\ql \cell\qc (1)\cell\qc (2)\cell\qc (3)\cell\qc (4)\cell\qc (5)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx3024\cellx3888\cellx5328\cellx6768\cellx7920\cellx9360
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx3024\clbrdrb\brdrs\cellx3888\clbrdrb\brdrs\cellx5328\clbrdrb\brdrs\cellx6768\clbrdrb\brdrs\cellx7920\clbrdrb\brdrs\cellx9360
+\ql VARIABLES\cell\qc N\cell\qc mean\cell\qc sd\cell\qc min\cell\qc max\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx3024\cellx3888\cellx5328\cellx6768\cellx7920\cellx9360
+\ql \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\row
+\ql ntd\cell\qc 1,102\cell\qc 48,776\cell\qc 27,713\cell\qc 1\cell\qc 99,425\cell\row
+\ql uza_id\cell\qc 1,102\cell\qc 120.8\cell\qc 130.0\cell\qc 1\cell\qc 601\cell\row
+\ql uza_area\cell\qc 1,102\cell\qc 651.4\cell\qc 838.5\cell\qc 14\cell\qc 3,450\cell\row
+\ql uza_pop\cell\qc 1,102\cell\qc 2.429e+06\cell\qc 4.203e+06\cell\qc 51,240\cell\qc 1.835e+07\cell\row
+\ql sa_area\cell\qc 1,102\cell\qc 636.1\cell\qc 1,256\cell\qc 1\cell\qc 15,355\cell\row
+\ql sa_pop\cell\qc 1,102\cell\qc 936,893\cell\qc 1.685e+06\cell\qc 12,954\cell\qc 1.164e+07\cell\row
+\ql passenger_miles\cell\qc 1,102\cell\qc 3.757e+07\cell\qc 1.904e+08\cell\qc 5,980\cell\qc 3.930e+09\cell\row
+\ql unlinked_trips\cell\qc 1,102\cell\qc 6.063e+06\cell\qc 2.916e+07\cell\qc 1,158\cell\qc 6.916e+08\cell\row
+\ql avg_trip_length\cell\qc 1,102\cell\qc 8.674\cell\qc 9.067\cell\qc 0.340\cell\qc 93.80\cell\row
+\ql fares\cell\qc 1,102\cell\qc 1.042e+07\cell\qc 5.644e+07\cell\qc 0\cell\qc 8.461e+08\cell\row
+\ql operating_expenses\cell\qc 1,102\cell\qc 3.759e+07\cell\qc 1.418e+08\cell\qc 41,768\cell\qc 2.686e+09\cell\row
+\ql average_cost\cell\qc 1,102\cell\qc 21.44\cell\qc 20.33\cell\qc 0.950\cell\qc 230.0\cell\row
+\ql average_fare\cell\qc 1,102\cell\qc 2.162\cell\qc 2.848\cell\qc 0\cell\qc 30.84\cell\row
+\ql trips_per_person\cell\qc 1,102\cell\qc 5.949\cell\qc 11.51\cell\qc 0.00220\cell\qc 83.45\cell\row
+\ql log_trips_per_person\cell\qc 1,102\cell\qc 0.177\cell\qc 1.992\cell\qc -6.121\cell\qc 4.424\cell\row
+\ql log_average_fare\cell\qc 1,102\cell\qc 0.367\cell\qc 0.903\cell\qc -4.605\cell\qc 3.429\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx3024\clbrdrb\brdrs\cellx3888\clbrdrb\brdrs\cellx5328\clbrdrb\brdrs\cellx6768\clbrdrb\brdrs\cellx7920\clbrdrb\brdrs\cellx9360
+\ql \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\row
+}

@@ -1,0 +1,9 @@
+	(1)	(2)	(3)	(4)	(5)	(6)
+	mode .		mode .		mode .	
+VARIABLES	N	mean	N	mean	N	mean
+						
+average_fare	441	2.866	98	2.552	563	1.542
+trips_per_person	441	0.401	98	11.67	563	9.299
+log_trips_per_person	441	-1.316	98	1.239	563	1.162
+log_average_fare	441	0.746	98	0.438	563	0.0581
+						
