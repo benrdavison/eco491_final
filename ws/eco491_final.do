@@ -1,4 +1,5 @@
-cd "C:/Users/ben/Dropbox/courses/eco491/eco491_final/ws"
+*cd "C:/Users/ben/Dropbox/courses/eco491/eco491_final/ws"
+cd "/Users/user/Dropbox (Personal)/courses/eco491/eco491_final/ws"
 
 log using "project.txt", text replace
 
