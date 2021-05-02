@@ -6,6 +6,7 @@ log using "project.txt", text replace
 clear
 use "data/feb21_transit.dta"
 
+gen tos_private = tos == "PT"
 gen trips_per_person = unlinked_trips / sa_pop
 gen log_trips_per_person = log(trips_per_person)
 gen log_average_fare = log(average_fare)
@@ -44,10 +45,10 @@ graph export "trips_per_person_dist.png", as(png) name("Graph") replace
 hist average_fare, kdensity
 graph export "average_fare_dist.png", as(png) name("Graph") replace
 
-twoway scatter log_trips_per_person log_average || lfit log_trips_per_person log_average ||, by(mode, total row(1)) ytitle("log_trips_per_person") leg(off)
+twoway scatter log_trips_per_person log_average_fare || lfit log_trips_per_person log_average_fare || if mode == "LR" | mode == "MB", by(mode, total row(1)) ytitle("log_trips_per_person") leg(off)
 graph export "fits_by_mode.png", as(png) name("Graph") replace
 
-twoway scatter log_trips_per_person log_average || lfit log_trips_per_person log_average ||, by(tos, total row(1)) ytitle("log_trips_per_person") leg(off)
+twoway scatter log_trips_per_person log_average_fare || lfit log_trips_per_person log_average_fare ||, by(tos, total row(1)) ytitle("log_trips_per_person") leg(off)
 graph export "fits_by_tos.png", as(png) name("Graph") replace
 
 bysort mode: outreg2 using "bysort_sum_mode.doc", replace sum(log) keep (trips_per_person log_trips_per_person average_fare log_average_fare) eqkeep(N mean)
@@ -62,17 +63,14 @@ predict yhat
 scatter log_trips_per_person log_average_fare || line yhat log_average_fare, ytitle("log_trips_per_person") leg(off)
 graph export "ltrips_lwage_scatter.png", as(png) name("Graph") replace
 
-reg log_trips_per_person log_average_fare if tos=="PT", robust
+reg log_trips_per_person tos_private log_average_fare, robust
 outreg2 using "ltrip_lfare_tos.doc", replace ctitle("PT")
-reg log_trips_per_person log_average_fare if tos=="DO", robust
-outreg2 using "ltrip_lfare_tos.doc", append ctitle("DO")
 
 reg log_trips_per_person log_average_fare if mode=="LR", robust
 outreg2 using "ltrip_lfare_mode.doc", replace ctitle("LR")
 reg log_trips_per_person log_average_fare if mode=="MB", robust
 outreg2 using "ltrip_lfare_mode.doc", append ctitle("MB")
-reg log_trips_per_person log_average_fare if mode=="DR", robust
-outreg2 using "ltrip_lfare_mode.doc", append ctitle("DR")
+
 
 
 log close

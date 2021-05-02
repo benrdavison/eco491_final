@@ -1,8 +1,9 @@
---------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\Users\ben\Dropbox\courses\eco491\eco491_final\ws\project.txt
+       log:  /Users/user/Dropbox (Personal)/courses/eco491/eco491_final/ws/proje
+> ct.txt
   log type:  text
- opened on:  30 Apr 2021, 20:17:43
+ opened on:   1 May 2021, 20:32:55
 
 . 
 . clear
@@ -122,32 +123,42 @@ dir : seeout
 (bin=30, start=.00219686, width=2.7814346)
 
 . graph export "trips_per_person_dist.png", as(png) name("Graph") replace
-file trips_per_person_dist.png saved as PNG format
+file /Users/user/Dropbox
+    (Personal)/courses/eco491/eco491_final/ws/trips_per_person_dist.png saved
+    as PNG format
 
 . 
 . hist average_fare, kdensity
 (bin=30, start=0, width=1.028)
 
 . graph export "average_fare_dist.png", as(png) name("Graph") replace
-file average_fare_dist.png saved as PNG format
+file /Users/user/Dropbox
+    (Personal)/courses/eco491/eco491_final/ws/average_fare_dist.png saved as
+    PNG format
 
 . 
-. twoway scatter log_trips_per_person log_average || lfit log_trips_per_person log_average ||, by(
-> mode, total row(1)) ytitle("log_trips_per_person") leg(off)
+. twoway scatter log_trips_per_person log_average_fare || lfit log_trips_per_per
+> son log_average_fare || if mode == "LR" | mode == "MB", by(mode, total row(1))
+>  ytitle("log_trips_per_person") leg(off)
 
 . graph export "fits_by_mode.png", as(png) name("Graph") replace
-file fits_by_mode.png saved as PNG format
+file /Users/user/Dropbox
+    (Personal)/courses/eco491/eco491_final/ws/fits_by_mode.png saved as PNG
+    format
 
 . 
-. twoway scatter log_trips_per_person log_average || lfit log_trips_per_person log_average ||, by(
-> tos, total row(1)) ytitle("log_trips_per_person") leg(off)
+. twoway scatter log_trips_per_person log_average_fare || lfit log_trips_per_per
+> son log_average_fare ||, by(tos, total row(1)) ytitle("log_trips_per_person") 
+> leg(off)
 
 . graph export "fits_by_tos.png", as(png) name("Graph") replace
-file fits_by_tos.png saved as PNG format
+file /Users/user/Dropbox
+    (Personal)/courses/eco491/eco491_final/ws/fits_by_tos.png saved as PNG
+    format
 
 . 
-. bysort mode: outreg2 using "bysort_sum_mode.doc", replace sum(log) keep (trips_per_person log_tr
-> ips_per_person average_fare log_average_fare) eqkeep(N mean)
+. bysort mode: outreg2 using "bysort_sum_mode.doc", replace sum(log) keep (trips
+> _per_person log_trips_per_person average_fare log_average_fare) eqkeep(N mean)
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -226,8 +237,8 @@ agency  mode  tos  organization  uza_name
 bysort_sum_mode.doc
 dir : seeout
 
-. bysort tos: outreg2 using "bysort_sum_tos.doc", replace sum(log) keep (trips_per_person log_trip
-> s_per_person average_fare log_average_fare) eqkeep(N mean)
+. bysort tos: outreg2 using "bysort_sum_tos.doc", replace sum(log) keep (trips_p
+> er_person log_trips_per_person average_fare log_average_fare) eqkeep(N mean)
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -311,13 +322,13 @@ Linear regression                               Number of obs     =      1,102
                                                 R-squared         =     0.0779
                                                 Root MSE          =     1.9139
 
-----------------------------------------------------------------------------------
-                 |               Robust
-log_trips_per_~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
------------------+----------------------------------------------------------------
-log_average_fare |   -.616125   .0713252    -8.64   0.000    -.7560738   -.4761763
-           _cons |    .403668   .0699703     5.77   0.000     .2663776    .5409583
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+              |               Robust
+log_trips_p~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+log_average~e |   -.616125   .0713252    -8.64   0.000    -.7560738   -.4761763
+        _cons |    .403668   .0699703     5.77   0.000     .2663776    .5409583
+-------------------------------------------------------------------------------
 
 . outreg2 using "trips_fares.doc", append ctitle("log_trips_per_person")
 trips_fares.doc
@@ -326,11 +337,13 @@ dir : seeout
 . predict yhat
 (option xb assumed; fitted values)
 
-. scatter log_trips_per_person log_average_fare || line yhat log_average_fare, ytitle("log_trips_p
-> er_person") leg(off)
+. scatter log_trips_per_person log_average_fare || line yhat log_average_fare, y
+> title("log_trips_per_person") leg(off)
 
 . graph export "ltrips_lwage_scatter.png", as(png) name("Graph") replace
-file ltrips_lwage_scatter.png saved as PNG format
+file /Users/user/Dropbox
+    (Personal)/courses/eco491/eco491_final/ws/ltrips_lwage_scatter.png saved
+    as PNG format
 
 . 
 . reg log_trips_per_person log_average_fare if tos=="PT", robust
@@ -341,13 +354,13 @@ Linear regression                               Number of obs     =        502
                                                 R-squared         =     0.0500
                                                 Root MSE          =     1.7519
 
-----------------------------------------------------------------------------------
-                 |               Robust
-log_trips_per_~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
------------------+----------------------------------------------------------------
-log_average_fare |   -.450591   .1042128    -4.32   0.000    -.6553398   -.2458421
-           _cons |  -.1688842    .109758    -1.54   0.125    -.3845279    .0467595
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+              |               Robust
+log_trips_p~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+log_average~e |   -.450591   .1042128    -4.32   0.000    -.6553398   -.2458421
+        _cons |  -.1688842    .109758    -1.54   0.125    -.3845279    .0467595
+-------------------------------------------------------------------------------
 
 . outreg2 using "ltrip_lfare_tos.doc", replace ctitle("PT")
 ltrip_lfare_tos.doc
@@ -361,13 +374,13 @@ Linear regression                               Number of obs     =        600
                                                 R-squared         =     0.0763
                                                 Root MSE          =     1.9456
 
-----------------------------------------------------------------------------------
-                 |               Robust
-log_trips_per_~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
------------------+----------------------------------------------------------------
-log_average_fare |  -.6233615   .0937327    -6.65   0.000    -.8074468   -.4392762
-           _cons |   .8144595   .0871213     9.35   0.000     .6433585    .9855605
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+              |               Robust
+log_trips_p~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+log_average~e |  -.6233615   .0937327    -6.65   0.000    -.8074468   -.4392762
+        _cons |   .8144595   .0871213     9.35   0.000     .6433585    .9855605
+-------------------------------------------------------------------------------
 
 . outreg2 using "ltrip_lfare_tos.doc", append ctitle("DO")
 ltrip_lfare_tos.doc
@@ -382,13 +395,13 @@ Linear regression                               Number of obs     =         98
                                                 R-squared         =     0.0094
                                                 Root MSE          =     1.7387
 
-----------------------------------------------------------------------------------
-                 |               Robust
-log_trips_per_~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
------------------+----------------------------------------------------------------
-log_average_fare |  -.1664655    .176576    -0.94   0.348    -.5169661    .1840351
-           _cons |    1.31213   .2043992     6.42   0.000     .9064011     1.71786
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+              |               Robust
+log_trips_p~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+log_average~e |  -.1664655    .176576    -0.94   0.348    -.5169661    .1840351
+        _cons |    1.31213   .2043992     6.42   0.000     .9064011     1.71786
+-------------------------------------------------------------------------------
 
 . outreg2 using "ltrip_lfare_mode.doc", replace ctitle("LR")
 ltrip_lfare_mode.doc
@@ -402,43 +415,25 @@ Linear regression                               Number of obs     =        563
                                                 R-squared         =     0.0394
                                                 Root MSE          =     1.8301
 
-----------------------------------------------------------------------------------
-                 |               Robust
-log_trips_per_~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
------------------+----------------------------------------------------------------
-log_average_fare |    -.45221   .1226069    -3.69   0.000    -.6930346   -.2113854
-           _cons |   1.188582   .0783676    15.17   0.000     1.034652    1.342512
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+              |               Robust
+log_trips_p~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+log_average~e |    -.45221   .1226069    -3.69   0.000    -.6930346   -.2113854
+        _cons |   1.188582   .0783676    15.17   0.000     1.034652    1.342512
+-------------------------------------------------------------------------------
 
 . outreg2 using "ltrip_lfare_mode.doc", append ctitle("MB")
 ltrip_lfare_mode.doc
 dir : seeout
 
-. reg log_trips_per_person log_average_fare if mode=="DR", robust
-
-Linear regression                               Number of obs     =        441
-                                                F(1, 439)         =       5.75
-                                                Prob > F          =     0.0169
-                                                R-squared         =     0.0160
-                                                Root MSE          =      1.038
-
-----------------------------------------------------------------------------------
-                 |               Robust
-log_trips_per_~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
------------------+----------------------------------------------------------------
-log_average_fare |   .1592335   .0664276     2.40   0.017     .0286778    .2897891
-           _cons |  -1.434994   .0785666   -18.26   0.000    -1.589408   -1.280581
-----------------------------------------------------------------------------------
-
-. outreg2 using "ltrip_lfare_mode.doc", append ctitle("DR")
-ltrip_lfare_mode.doc
-dir : seeout
-
+. 
 . 
 . 
 . log close
       name:  <unnamed>
-       log:  C:\Users\ben\Dropbox\courses\eco491\eco491_final\ws\project.txt
+       log:  /Users/user/Dropbox (Personal)/courses/eco491/eco491_final/ws/proje
+> ct.txt
   log type:  text
- closed on:  30 Apr 2021, 20:17:50
---------------------------------------------------------------------------------------------------
+ closed on:   1 May 2021, 20:33:03
+--------------------------------------------------------------------------------
