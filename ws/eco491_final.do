@@ -51,6 +51,10 @@ graph export "fits_by_mode.png", as(png) name("Graph") replace
 twoway scatter log_trips_per_person log_average_fare || lfit log_trips_per_person log_average_fare ||, by(tos, total row(1)) ytitle("log_trips_per_person") leg(off)
 graph export "fits_by_tos.png", as(png) name("Graph") replace
 
+twoway scatter trips_per_person average_fare, ytitle("trips_per_person") leg(off)
+graph export "trips_fare_dist.png", as(png) name("Graph") replace
+
+
 bysort mode: outreg2 using "bysort_sum_mode.doc", replace sum(log) keep (trips_per_person log_trips_per_person average_fare log_average_fare) eqkeep(N mean)
 bysort tos: outreg2 using "bysort_sum_tos.doc", replace sum(log) keep (trips_per_person log_trips_per_person average_fare log_average_fare) eqkeep(N mean)
 
@@ -59,7 +63,9 @@ outreg2 using "trips_fares.doc", replace ctitle("trips_per_person")
 
 reg log_trips_per_person log_average_fare, robust
 outreg2 using "trips_fares.doc", append ctitle("log_trips_per_person")
+
 predict yhat
+
 scatter log_trips_per_person log_average_fare || line yhat log_average_fare, ytitle("log_trips_per_person") leg(off)
 graph export "ltrips_lwage_scatter.png", as(png) name("Graph") replace
 
@@ -70,6 +76,12 @@ reg log_trips_per_person log_average_fare if mode=="LR", robust
 outreg2 using "ltrip_lfare_mode.doc", replace ctitle("LR")
 reg log_trips_per_person log_average_fare if mode=="MB", robust
 outreg2 using "ltrip_lfare_mode.doc", append ctitle("MB")
+
+reg unlinked_trips sa_pop fares, robust
+outreg2 using "trips_pop_fares.doc", replace ctitle("unlinked_trips")
+
+
+
 
 
 

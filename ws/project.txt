@@ -3,7 +3,7 @@
        log:  /Users/user/Dropbox (Personal)/courses/eco491/eco491_final/ws/proje
 > ct.txt
   log type:  text
- opened on:   1 May 2021, 20:32:55
+ opened on:   2 May 2021, 11:01:28
 
 . 
 . clear
@@ -11,6 +11,8 @@
 . use "data/feb21_transit.dta"
 
 . 
+. gen tos_private = tos == "PT"
+
 . gen trips_per_person = unlinked_trips / sa_pop
 
 . gen log_trips_per_person = log(trips_per_person)
@@ -108,9 +110,10 @@ avg_trip_l~h |      1,102    8.674002    9.067221        .34       93.8
 operating_~s |      1,102    3.76e+07    1.42e+08      41768   2.69e+09
 average_cost |      1,102    21.43781    20.32725        .95     230.04
 average_fare |      1,102    2.161679    2.848074          0      30.84
+ tos_private |      1,102    .4555354    .4982451          0          1
 trips_per_~n |      1,102    5.948738    11.51359   .0021969   83.44524
-log_trips_~n |      1,102    .1773146    1.992282  -6.120726   4.424191
 -------------+---------------------------------------------------------
+log_trips_~n |      1,102    .1773146    1.992282  -6.120726   4.424191
 log_averag~e |      1,102    .3673821    .9027027   -4.60517   3.428813
 
 Following variable is string, not included:  
@@ -157,6 +160,16 @@ file /Users/user/Dropbox
     format
 
 . 
+. twoway scatter trips_per_person average_fare, ytitle("trips_per_person") leg(o
+> ff)
+
+. graph export "trips_fare_dist.png", as(png) name("Graph") replace
+file /Users/user/Dropbox
+    (Personal)/courses/eco491/eco491_final/ws/trips_fare_dist.png saved as PNG
+    format
+
+. 
+. 
 . bysort mode: outreg2 using "bysort_sum_mode.doc", replace sum(log) keep (trips
 > _per_person log_trips_per_person average_fare log_average_fare) eqkeep(N mean)
 
@@ -177,9 +190,10 @@ avg_trip_l~h |        441    8.328163    3.986424        .34      39.47
 operating_~s |        441     9044885    3.00e+07      41768   5.16e+08
 average_cost |        441    38.96753    19.86132       4.58     230.04
 average_fare |        441    2.866281    2.863736          0       23.6
+ tos_private |        441    .5351474    .4993296          0          1
 trips_per_~n |        441    .4011672    .3580938   .0021969   3.590606
-log_trips_~n |        441   -1.316129    1.045164  -6.120726   1.278321
 -------------+---------------------------------------------------------
+log_trips_~n |        441   -1.316129    1.045164  -6.120726   1.278321
 log_averag~e |        441    .7464884    .8293637  -3.912023   3.161247
 
 Following variable is string, not included:  
@@ -202,9 +216,10 @@ avg_trip_l~h |         98    11.40827    14.88839        .64       87.9
 operating_~s |         98    1.38e+08    2.69e+08     319407   1.51e+09
 average_cost |         98    11.41143    10.97027       1.44      65.55
 average_fare |         98    2.552449    3.668592          0      26.07
+ tos_private |         98    .3877551    .4897433          0          1
 trips_per_~n |         98    11.66739    17.61884   .0940664    69.5408
-log_trips_~n |         98    1.239224    1.737877  -2.363754   4.241914
 -------------+---------------------------------------------------------
+log_trips_~n |         98    1.239224    1.737877  -2.363754   4.241914
 log_averag~e |         98     .437967    1.013674  -2.525729   3.260785
 
 Following variable is string, not included:  
@@ -227,9 +242,10 @@ avg_trip_l~h |        563    8.468952    10.43667        .52       93.8
 operating_~s |        563    4.24e+07    1.54e+08      92614   2.69e+09
 average_cost |        563    9.451989    8.791879        .95     110.72
 average_fare |        563    1.541741    2.519178          0      30.84
+ tos_private |        563    .4049734    .4913234          0          1
 trips_per_~n |        563    9.298738    12.84238   .0083073   83.44524
-log_trips_~n |        563     1.16229    1.865666   -4.79062   4.424191
 -------------+---------------------------------------------------------
+log_trips_~n |        563     1.16229    1.865666   -4.79062   4.424191
 log_averag~e |        563    .0581402    .8191899   -4.60517   3.428813
 
 Following variable is string, not included:  
@@ -257,9 +273,10 @@ avg_trip_l~h |        600    7.586633    8.487889        .69       93.8
 operating_~s |        600    5.46e+07    1.87e+08     104077   2.69e+09
 average_cost |        600    19.42625     20.0063        .96     129.26
 average_fare |        600    2.001517    3.125119          0      30.84
+ tos_private |        600           0           0          0          0
 trips_per_~n |        600    8.097002    13.08382   .0021969   83.44524
-log_trips_~n |        600     .657684    2.022719  -6.120726   4.424191
 -------------+---------------------------------------------------------
+log_trips_~n |        600     .657684    2.022719  -6.120726   4.424191
 log_averag~e |        600    .2515001    .8964309  -3.912023   3.428813
 
 Following variable is string, not included:  
@@ -282,9 +299,10 @@ avg_trip_l~h |        502    9.973645    9.561891        .34       87.9
 operating_~s |        502    1.72e+07    4.18e+07      41768   5.16e+08
 average_cost |        502    23.84207     20.4661        .95     230.04
 average_fare |        502    2.353108    2.466117          0      26.07
+ tos_private |        502           1           0          1          1
 trips_per_~n |        502    3.381091    8.632241   .0048709   73.10496
-log_trips_~n |        502   -.3968321    1.795647  -5.324466   4.291896
 -------------+---------------------------------------------------------
+log_trips_~n |        502   -.3968321    1.795647  -5.324466   4.291896
 log_averag~e |        502    .5058865    .8914516   -4.60517   3.260785
 
 Following variable is string, not included:  
@@ -334,9 +352,11 @@ log_average~e |   -.616125   .0713252    -8.64   0.000    -.7560738   -.4761763
 trips_fares.doc
 dir : seeout
 
+. 
 . predict yhat
 (option xb assumed; fitted values)
 
+. 
 . scatter log_trips_per_person log_average_fare || line yhat log_average_fare, y
 > title("log_trips_per_person") leg(off)
 
@@ -346,43 +366,24 @@ file /Users/user/Dropbox
     as PNG format
 
 . 
-. reg log_trips_per_person log_average_fare if tos=="PT", robust
+. reg log_trips_per_person tos_private log_average_fare, robust
 
-Linear regression                               Number of obs     =        502
-                                                F(1, 500)         =      18.69
+Linear regression                               Number of obs     =      1,102
+                                                F(2, 1099)        =      82.76
                                                 Prob > F          =     0.0000
-                                                R-squared         =     0.0500
-                                                Root MSE          =     1.7519
+                                                R-squared         =     0.1294
+                                                Root MSE          =     1.8607
 
 -------------------------------------------------------------------------------
               |               Robust
 log_trips_p~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
 --------------+----------------------------------------------------------------
-log_average~e |   -.450591   .1042128    -4.32   0.000    -.6553398   -.2458421
-        _cons |  -.1688842    .109758    -1.54   0.125    -.3845279    .0467595
+  tos_private |  -.9158375   .1146165    -7.99   0.000    -1.140729   -.6909456
+log_average~e |  -.5451495   .0701744    -7.77   0.000    -.6828405   -.4074585
+        _cons |   .7947892   .0835591     9.51   0.000     .6308357    .9587427
 -------------------------------------------------------------------------------
 
 . outreg2 using "ltrip_lfare_tos.doc", replace ctitle("PT")
-ltrip_lfare_tos.doc
-dir : seeout
-
-. reg log_trips_per_person log_average_fare if tos=="DO", robust
-
-Linear regression                               Number of obs     =        600
-                                                F(1, 598)         =      44.23
-                                                Prob > F          =     0.0000
-                                                R-squared         =     0.0763
-                                                Root MSE          =     1.9456
-
--------------------------------------------------------------------------------
-              |               Robust
-log_trips_p~n | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
---------------+----------------------------------------------------------------
-log_average~e |  -.6233615   .0937327    -6.65   0.000    -.8074468   -.4392762
-        _cons |   .8144595   .0871213     9.35   0.000     .6433585    .9855605
--------------------------------------------------------------------------------
-
-. outreg2 using "ltrip_lfare_tos.doc", append ctitle("DO")
 ltrip_lfare_tos.doc
 dir : seeout
 
@@ -428,6 +429,31 @@ ltrip_lfare_mode.doc
 dir : seeout
 
 . 
+. reg unlinked_trips sa_pop fares, robust
+
+Linear regression                               Number of obs     =      1,102
+                                                F(2, 1099)        =      14.09
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.6194
+                                                Root MSE          =     1.8e+07
+
+------------------------------------------------------------------------------
+             |               Robust
+unlinked_t~s | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      sa_pop |   .7126088   .7736843     0.92   0.357    -.8054564    2.230674
+       fares |   .3968602   .1151016     3.45   0.001     .1710165    .6227038
+       _cons |    1261756   514233.3     2.45   0.014     252766.1     2270746
+------------------------------------------------------------------------------
+
+. outreg2 using "trips_pop_fares.doc", replace ctitle("unlinked_trips")
+trips_pop_fares.doc
+dir : seeout
+
+. 
+. 
+. 
+. 
 . 
 . 
 . log close
@@ -435,5 +461,5 @@ dir : seeout
        log:  /Users/user/Dropbox (Personal)/courses/eco491/eco491_final/ws/proje
 > ct.txt
   log type:  text
- closed on:   1 May 2021, 20:33:03
+ closed on:   2 May 2021, 11:01:37
 --------------------------------------------------------------------------------

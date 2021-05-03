@@ -1,0 +1,14 @@
+	(1)
+VARIABLES	unlinked_trips
+	
+sa_pop	0.713
+	(0.774)
+fares	0.397***
+	(0.115)
+Constant	1.262e+06**
+	(514,233)
+	
+Observations	1,102
+R-squared	0.619
+Robust standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	
