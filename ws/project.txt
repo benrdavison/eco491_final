@@ -3,7 +3,7 @@
        log:  /Users/user/Dropbox (Personal)/courses/eco491/eco491_final/ws/proje
 > ct.txt
   log type:  text
- opened on:   2 May 2021, 11:01:28
+ opened on:   4 May 2021, 15:01:01
 
 . 
 . clear
@@ -461,5 +461,5 @@ dir : seeout
        log:  /Users/user/Dropbox (Personal)/courses/eco491/eco491_final/ws/proje
 > ct.txt
   log type:  text
- closed on:   2 May 2021, 11:01:37
+ closed on:   4 May 2021, 15:01:10
 --------------------------------------------------------------------------------
